@@ -1,1 +1,1 @@
-web: node web.js
+web: play run --http.port=$PORT $PLAY_OPTS
