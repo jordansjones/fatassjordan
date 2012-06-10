@@ -10,6 +10,7 @@ import jordansjones.resources.IndexResource;
 public class FatassService extends Service<FatassServiceConfiguration> {
 
 	private static final String PortJvmArgName = "dw.http.port";
+	private static final String AdminPortJvmArgName = "dw.http.adminPort";
 	private static final String defaultPort = "8080";
 
 	public static void main(String[] args) throws Exception {
@@ -17,6 +18,7 @@ public class FatassService extends Service<FatassServiceConfiguration> {
 		if (Strings.isNullOrEmpty(port))
 			port = defaultPort;
 		System.setProperty(PortJvmArgName, port);
+		System.setProperty(AdminPortJvmArgName, port);
 		new FatassService().run(args);
 	}
 
