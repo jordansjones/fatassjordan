@@ -1,9 +1,20 @@
-bin/
-data/
-db/
-dist/
-logs/
-test-result/
-lib/
-tmp/
-modules/
+target/
+
+*.iml
+*.ipr
+*.iws
+.idea/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+### /Users/jordanjones/.gitignore-boilerplates/Compass.gitignore
+
+.sass-cache
+
+
