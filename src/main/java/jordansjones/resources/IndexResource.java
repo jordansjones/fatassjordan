@@ -12,16 +12,8 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.TEXT_HTML)
 public class IndexResource {
 
-	private final String template;
-	private final String defaultName;
-
-	public IndexResource(String template, String defaultName) {
-		this.template = template;
-		this.defaultName = defaultName;
-	}
-
 	@GET
 	public IndexView get() {
-		return new IndexView(String.format(template, defaultName));
+		return new IndexView("Hello World!");
 	}
 }

@@ -1,4 +1,4 @@
-package jordansjones.core;
+package jordansjones.api;
 
 public class StatusUpdate {
 
@@ -6,7 +6,7 @@ public class StatusUpdate {
 	private final String date;
 	private final String text;
 
-	public StatusUpdate(String id, String date, String text) {
+	public StatusUpdate(final String id, final String date, final String text) {
 		this.id = id;
 		this.date = date;
 		this.text = text;
