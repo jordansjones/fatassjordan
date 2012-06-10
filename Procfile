@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar fatass/target/fatass.jar server fatass.json
+web: java $JAVA_OPTS -jar target/fatass.jar server fatass.json
