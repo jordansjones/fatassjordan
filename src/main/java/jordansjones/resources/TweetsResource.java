@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import com.yammer.dropwizard.logging.Log;
 import jordansjones.api.StatusUpdate;
 import jordansjones.core.Tweet;
 
@@ -20,6 +21,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Produces(MediaType.APPLICATION_JSON)
 public class TweetsResource {
 
+	private static final Log logger = Log.forClass(TweetsResource.class);
+
 	private final ConcurrentHashMap<Long, StatusUpdate> statusUpdates = new ConcurrentHashMap<Long, StatusUpdate>();
 	private final EventBus eventBus;
 
@@ -31,12 +34,18 @@ public class TweetsResource {
 
 	@GET
 	public Collection<StatusUpdate> get() {
+		logger.info("Returning {} Status updates", statusUpdates.size());
 		return statusUpdates.values();
 	}
 
 	@Subscribe
 	@AllowConcurrentEvents
-	public void handleNewTweets(final Tweet[] tweets) {
+	public void handleNewTweets(Tweet[] tweets) {
+		if (tweets == null)
+			tweets = new Tweet[0];
+
+		logger.info("{} new tweets on the event bus.", tweets.length);
+
 		final List<StatusUpdate> updates = Lists.newArrayList();
 		for (Tweet tweet : tweets) {
 			final StatusUpdate statusUpdate = new StatusUpdate(

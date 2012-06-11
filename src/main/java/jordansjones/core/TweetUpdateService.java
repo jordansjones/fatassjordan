@@ -44,11 +44,15 @@ public class TweetUpdateService extends AbstractScheduledService {
 		}
 
 		final URI uri = this.endpointUriBuilder.build();
-		final Tweet[] tweets = this.httpClient.get(uri, MediaType.APPLICATION_JSON_TYPE, Tweet[].class);
-		if (tweets != null && tweets.length > 0)
+		Tweet[] tweets = this.httpClient.get(uri, MediaType.APPLICATION_JSON_TYPE, Tweet[].class);
+		if (tweets == null)
+			tweets = new Tweet[0];
+
+		logger.info("{} tweets returned.", tweets.length);
+		if (tweets.length > 0)
 			eventBus.post(tweets);
 
-		if (tweets != null && tweets.length > 0) {
+		if (tweets.length > 0) {
 			if (tweet == null)
 				tweet = tweets[0];
 
