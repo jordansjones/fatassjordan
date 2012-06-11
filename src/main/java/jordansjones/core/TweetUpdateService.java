@@ -37,20 +37,16 @@ public class TweetUpdateService extends AbstractScheduledService {
 	@Override
 	protected void runOneIteration() throws Exception {
 		logger.info("Update Tweets");
-		Tweet tweet = recentTweet.get();
+		Tweet tweet = null;
 		try {
-			logger.info("Preparing URL");
-			if (tweet != null) {
-				this.endpointUriBuilder = this.endpointUriBuilder
-					.replaceQueryParam("since_id", tweet.getId());
+			if (recentTweet.isPresent()) {
+				tweet = recentTweet.get();
+				this.endpointUriBuilder = this.endpointUriBuilder.replaceQueryParam("since_id", tweet.getId());
 			}
 		}
 		catch (IllegalArgumentException iae) {
 			logger.error(iae, "when trying to replace the query param");
 			throw iae;
-		}
-		finally {
-			logger.info ("URL prepared.");
 		}
 
 		Tweet[] tweets;
