@@ -52,7 +52,9 @@ public class TweetUpdateService extends AbstractScheduledService {
 		Tweet[] tweets;
 
 		try {
+			logger.info("Building endpoint URL");
 			final URI uri = this.endpointUriBuilder.build();
+			logger.info("Requesting new tweets");
 			tweets = this.httpClient.get(uri, MediaType.APPLICATION_JSON_TYPE, Tweet[].class);
 		}
 		catch (RuntimeException re) {
