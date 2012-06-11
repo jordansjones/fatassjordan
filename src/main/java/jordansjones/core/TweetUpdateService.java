@@ -53,6 +53,9 @@ public class TweetUpdateService extends AbstractScheduledService {
 			logger.error(re, "Error loading tweets.");
 			throw re;
 		}
+		finally {
+			logger.info("Finished loading tweets.");
+		}
 
 		if (tweets == null)
 			tweets = new Tweet[0];
