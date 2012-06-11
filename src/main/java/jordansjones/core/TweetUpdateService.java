@@ -43,8 +43,17 @@ public class TweetUpdateService extends AbstractScheduledService {
 				.replaceQueryParam("since_id", tweet.getId());
 		}
 
-		final URI uri = this.endpointUriBuilder.build();
-		Tweet[] tweets = this.httpClient.get(uri, MediaType.APPLICATION_JSON_TYPE, Tweet[].class);
+		Tweet[] tweets;
+
+		try {
+			final URI uri = this.endpointUriBuilder.build();
+			tweets = this.httpClient.get(uri, MediaType.APPLICATION_JSON_TYPE, Tweet[].class);
+		}
+		catch (RuntimeException re) {
+			logger.error(re, "Error loading tweets.");
+			throw re;
+		}
+
 		if (tweets == null)
 			tweets = new Tweet[0];
 
