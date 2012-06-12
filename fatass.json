@@ -16,7 +16,7 @@
 	},
 
 	"updateService": {
-		"initialDelay": "30s",
+		"initialDelay": "1s",
 		"period": "25m",
 		"screenName": "fatassjordan"
 	}
