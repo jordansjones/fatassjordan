@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 
 public class TweetUpdateServiceConfig {
 
+	@JsonProperty
+	private boolean enabled = true;
+
 	@NotNull
 	private Duration initialDelay = Duration.minutes(1);
 
@@ -28,6 +31,10 @@ public class TweetUpdateServiceConfig {
 	@NotEmpty
 	@JsonProperty
 	private String screenName;
+
+	public boolean isEnabled() {
+		return enabled;
+	}
 
 	public Duration getInitialDelay() {
 		return initialDelay;

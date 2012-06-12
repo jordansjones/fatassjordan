@@ -7,6 +7,9 @@ import com.google.common.eventbus.Subscribe;
 import com.yammer.dropwizard.logging.Log;
 import jordansjones.api.StatusUpdate;
 import jordansjones.core.Tweet;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -22,6 +25,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TweetsResource {
 
 	private static final Log logger = Log.forClass(TweetsResource.class);
+
+	private final DateTimeFormatter dateFormatter = DateTimeFormat.mediumDate();
+	private final DateTimeFormatter timeFormatter = DateTimeFormat.mediumTime();
 
 	private final ConcurrentHashMap<Long, StatusUpdate> statusUpdates = new ConcurrentHashMap<Long, StatusUpdate>();
 	private final EventBus eventBus;
@@ -48,10 +54,13 @@ public class TweetsResource {
 
 		final List<StatusUpdate> updates = Lists.newArrayList();
 		for (Tweet tweet : tweets) {
+			final DateTime createdAt = tweet.getCreatedAt();
 			final StatusUpdate statusUpdate = new StatusUpdate(
 				tweet.getIdStr(),
-				tweet.getCreatedAt().toString(),
-				tweet.getText()
+				dateFormatter.print(createdAt),
+				timeFormatter.print(createdAt),
+				tweet.getText(),
+				createdAt.toInstant().getMillis()
 			);
 			if (this.statusUpdates.putIfAbsent(tweet.getId(), statusUpdate) == null)
 				updates.add(statusUpdate);

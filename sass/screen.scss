@@ -1,0 +1,43 @@
+/* Welcome to Compass.
+* In this file you should write your main styles. (or centralize your imports)
+* Import this file using the following HTML or equivalent:
+* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "bootstrap";
+@import "compass/css3";
+
+body {
+	background-color: #f5f5f5;
+}
+
+#page-header {
+	margin-bottom: 20px;
+	position: relative;
+
+	#site-logo {
+		position: absolute;
+	}
+}
+
+.weight-report {
+	line-height: $baseLineHeight * 2;
+	border: 1px solid $transparent;
+	padding: 20px;
+
+	&:hover {
+		@extend .well;
+		margin-bottom: 0px;
+		padding: 20px;
+	}
+
+
+	.timestamp {
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.weight {
+		font-size: 24px;
+		text-align: center;
+	}
+}

@@ -12,9 +12,6 @@ target/
 *.war
 *.ear
 
-
-### /Users/jordanjones/.gitignore-boilerplates/Compass.gitignore
-
 .sass-cache
 
 

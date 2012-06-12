@@ -16,6 +16,7 @@
 	},
 
 	"updateService": {
+		"enabled": true,
 		"initialDelay": "1s",
 		"period": "25m",
 		"screenName": "fatassjordan"
