@@ -77,6 +77,8 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 				value = parseFloat(weight);
 			}
 			catch (err) {
+			}
+			if (!_.isNumber(value)) {
 				value = weight;
 			}
 			data['value'] = value;
