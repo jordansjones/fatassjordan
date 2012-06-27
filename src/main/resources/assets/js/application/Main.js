@@ -78,7 +78,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 			}
 			catch (err) {
 			}
-			if (!_.isNumber(value)) {
+			if (!_.isNumber(value) || _.isNaN(value)) {
 				value = weight;
 			}
 			data['value'] = value;
