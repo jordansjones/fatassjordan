@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 	<title>Fatass Jordan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,16 +12,12 @@
 	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 	<link href="assets/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" data-main="assets/js/AppInit" src="assets/js/vendor/require-2.0.1.js"></script>
+	<script type="text/javascript" data-main="assets/js/AppInit" src="assets/js/vendor/require.js"></script>
 </head>
 <body>
-
-	<div id="page-header">
-		<img id="site-logo" src="assets/images/avatar-220x220.jpg" title="Fatass Jordan" alt="Fatass Jordan">
-	</div>
+	<header id="site-logo" title="Fatass Jordan"></header>
 
 	<div class="container page-container">
-
 
 	</div>
 
