@@ -4,22 +4,24 @@
 // Configure Require
 requirejs.config({
 	paths: {
-		"_": "vendor/underscore",
-		"jquery": "vendor/jquery-1.7.2",
-		"backbone": "vendor/backbone",
-		"handlebars": "vendor/handlebars"
+		'_': 'vendor/underscore',
+		'jquery': 'vendor/jquery-1.7.2',
+		'backbone': 'vendor/backbone',
+		'handlebars': 'vendor/handlebars',
+		'moment': 'vendor/moment',
+		'text': 'vendor/text'
 	},
 
 	shim: {
-		"_": {
-			"exports": "_"
+		'_': {
+			'exports': '_'
 		},
-		"backbone": {
-			"deps": ["_", "jquery"],
-			"exports": "Backbone"
+		'backbone': {
+			'deps': ['_', 'jquery'],
+			'exports': 'Backbone'
 		},
-		"handlebars": {
-			"exports": "Handlebars"
+		'handlebars': {
+			'exports': 'Handlebars'
 		}
 	}
 });
@@ -27,7 +29,7 @@ requirejs.config({
 requirejs(['jquery', 'application/Main'], function ($, Main) {
 	$(function () {
 		var app = new Main({
-			el: ".page-container"
+			el: '.page-container'
 		});
 		app.render();
 	});

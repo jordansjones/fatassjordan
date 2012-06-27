@@ -1,6 +1,4 @@
-<div id="{{id}}" class="weight-report row span4 offset4">
-	<div class="row">
-		<div class="timestamp span2" title="{{date}} at {{time}}">{{date}}</div>
-		<div class="weight span2"><strong>{{text}}</strong> lbs.</div>
-	</div>
-</div>
+<article id="{{id}}" class="record {{className}}">
+	<span class="value">{{value}}</span>
+	<time datetime="{{date}} {{time}}">{{moment}}</time>
+</article>

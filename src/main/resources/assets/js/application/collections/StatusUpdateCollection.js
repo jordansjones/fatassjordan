@@ -6,7 +6,7 @@ define(['backbone', 'application/models/StatusUpdateModel'], function (Backbone,
 		model: StatusUpdateModel,
 		url: '/tweets',
 		comparator: function (model) {
-			return model.get("timestamp");
+			return model.get("timestamp") * -1;
 		}
 	});
 });

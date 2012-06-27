@@ -1,43 +1,110 @@
-/* Welcome to Compass.
-* In this file you should write your main styles. (or centralize your imports)
-* Import this file using the following HTML or equivalent:
-* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-@import "bootstrap";
+@import "compass/reset";
 @import "compass/css3";
 
+@import "variables";
+@import "font";
+
+
+$bodyImage: "bg-body.jpg";
+$logoImage: "avatar-220x220.jpg";
+
+$arrow-sprite: sprite-map("arrows/*.png");
+
+$textColor: #949494;
+$textColorBlue: #00ccff;
+
 body {
-	background-color: #f5f5f5;
+	@include background-image(image-url($bodyImage));
+	color: $textColor;
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	margin: 10px;
 }
 
-#page-header {
-	margin-bottom: 20px;
-	position: relative;
+#site-logo {
+	@include border-radius(110px);
+	@include background-image(image-url($logoImage));
+	@include single-box-shadow();
 
-	#site-logo {
-		position: absolute;
+	border: 5px solid $textColorBlue;
+	margin: 30px auto;
+	height: image-height($logoImage);
+	width: image-width($logoImage);
+}
+
+
+fieldset {
+	border-top: 1px solid $textColor;
+	margin: 10px 0px;
+
+	legend {
+		font-weight: bold;
+		padding: 0px 10px;
+		text-align: center;
 	}
 }
 
-.weight-report {
-	line-height: $baseLineHeight * 2;
-	border: 1px solid $transparent;
-	padding: 20px;
+
+.record {
+	$fontSize: 74px;
+	$transitionDuration: 500ms;
+
+	margin: 10px auto;
+	position: relative;
+	width: 240px;
+
+	.value {
+		@include transition-duration($transitionDuration);
+
+		cursor: default;
+		display: block;
+		font-family: "RadioLand";
+		font-size: $fontSize;
+		letter-spacing: -1px;
+		line-height: 1;
+		padding-top: $fontSize / 3;
+		padding-right: $fontSize / 5;
+	}
+
+	time {
+		@include opacity(0);
+		@include transition-property("visibility", "opacity");
+		@include transition-duration(0s, $transitionDuration);
+
+		$width: 85px;
+		font-weight: bold;
+		position: absolute;
+		top: 30%;
+		right: -$width - 20px;
+		visibility: hidden;
+		width: $width;
+	}
+
+
 
 	&:hover {
-		@extend .well;
-		margin-bottom: 0px;
-		padding: 20px;
+
+		.value {
+			color: $white;
+		}
+
+		time {
+			@include opacity(1);
+			visibility: visible;
+		}
 	}
 
+}
 
-	.timestamp {
-		font-size: 16px;
-		text-align: center;
+.today {
+	.value {
+		color: $textColorBlue;
 	}
 
-	.weight {
-		font-size: 24px;
-		text-align: center;
+	&:hover {
+		.value {
+			color: $textColorBlue;
+		}
 	}
 }
