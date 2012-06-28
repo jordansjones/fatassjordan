@@ -39,6 +39,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 			var modelTs = moment(model.get('timestamp')).local();
 
 
+			console.log ("Today: %o, Model: %o, Diff: %o", this.today.calendar(), modelTs.calendar(), this.today.diff(modelTs, 'days'));
 			if (this.today.diff(modelTs, 'days') === 0) {
 				idx += 1;
 				this.append(StatusHeaderView({
