@@ -19,7 +19,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 			this.collection = new StatusUpdateCollection();
 			this.collection.on('reset', this.renderCollection, this);
 
-			this.today = moment();
+			this.today = moment().local();
 			this.headTextToday = 'TODAY MY FATASS WEIGHS';
 			this.headTextPrevious = 'PREVIOUSLY MY FATASS WEIGHED';
 
@@ -36,7 +36,8 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 			var idx = 0;
 
 			var model = this.collection.at(idx);
-			var modelTs = moment(model.get('timestamp'));
+			var modelTs = moment(model.get('timestamp')).local();
+
 
 			if (this.today.diff(modelTs, 'days') === 0) {
 				idx += 1;
@@ -63,7 +64,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 
 		renderModel: function (model, className) {
 			if (!model || model === null) return;
-			var dt = moment(model.get('timestamp'));
+			var dt = moment(model.get('timestamp')).local();
 			var data = {
 				'id': model.get('id'),
 				'date': model.get('date'),
