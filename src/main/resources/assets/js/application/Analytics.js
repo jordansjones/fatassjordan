@@ -1,8 +1,8 @@
 define(function () {
 	window._gaq = window._gaq || [];
-	window.push(['_setAccount', 'UA-33360072-1']);
-	window.push(['_setDomainName', 'fatassjordan.com']);
-	window.push(['_trackPageview']);
+	window._gaq.push(['_setAccount', 'UA-33360072-1']);
+	window._gaq.push(['_setDomainName', 'fatassjordan.com']);
+	window._gaq.push(['_trackPageview']);
 
 	return function () {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
