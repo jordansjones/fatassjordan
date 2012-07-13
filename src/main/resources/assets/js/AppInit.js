@@ -26,6 +26,8 @@ requirejs.config({
 	}
 });
 
+requirejs(['Analytics']);
+
 requirejs(['jquery', 'application/Main'], function ($, Main) {
 	$(function () {
 		var app = new Main({
