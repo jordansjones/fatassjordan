@@ -26,7 +26,7 @@ requirejs.config({
 	}
 });
 
-requirejs(['Analytics', 'jquery', 'application/Main'], function (Nothing, $, Main) {
+requirejs(['application/Analytics', 'jquery', 'application/Main'], function (Nothing, $, Main) {
 	$(function () {
 		var app = new Main({
 			el: '.page-container'
