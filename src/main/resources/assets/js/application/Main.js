@@ -72,17 +72,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 				'moment': dt.format('MMM DD, YYYY'),
 				'className': className || ''
 			};
-			var weight = model.get('text');
-			var value = null;
-			try {
-				value = parseFloat(weight);
-			}
-			catch (err) {
-			}
-			if (!_.isNumber(value) || _.isNaN(value)) {
-				value = weight;
-			}
-			data['value'] = value;
+			data['value'] = model.get('formattedWeight');
 
 			this.append(StatusUpdateView(data));
 		},

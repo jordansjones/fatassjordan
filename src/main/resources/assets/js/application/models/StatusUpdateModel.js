@@ -7,7 +7,8 @@ define(['backbone'], function (Backbone) {
 			id: "",
 			date: "",
 			time: "",
-			text: "",
+			weight: 0,
+			formattedWeight: 0.0,
 			timestamp: ""
 		}
 	});

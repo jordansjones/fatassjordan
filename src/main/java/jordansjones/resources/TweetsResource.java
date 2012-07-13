@@ -55,11 +55,24 @@ public class TweetsResource {
 		final List<StatusUpdate> updates = Lists.newArrayList();
 		for (Tweet tweet : tweets) {
 			final DateTime createdAt = tweet.getCreatedAt();
+			final String weightText = tweet.getText();
+			float weight = 0.0f;
+			try {
+				weight = Float.parseFloat(weightText);
+			}
+			catch (NumberFormatException nfe) {
+				continue;
+			}
+
+			if (weight < 1) {
+				continue;
+			}
+
 			final StatusUpdate statusUpdate = new StatusUpdate(
 				tweet.getIdStr(),
 				dateFormatter.print(createdAt),
 				timeFormatter.print(createdAt),
-				tweet.getText(),
+				weight,
 				createdAt.toInstant().getMillis()
 			);
 			if (this.statusUpdates.putIfAbsent(tweet.getId(), statusUpdate) == null)
