@@ -26,7 +26,7 @@ function ($, _, moment, BaseController, StatusUpdateCollection, StatusHeaderView
 			this.html('');
 
 			var opts = null;
-			// opts = {error: _.bind(this.loadMockTweets, this)};
+//			opts = {error: _.bind(this.loadMockTweets, this)};
 			this.collection.fetch(opts);
 		},
 

@@ -10,6 +10,9 @@ $logoImage: "avatar-220x220.jpg";
 
 $arrow-sprite: sprite-map("arrows/*.png");
 
+//$weightFont: 74px "RadioLand";
+$weightFont: 108px "DSDIGI";
+
 $textColor: #949494;
 $textColorBlue: #00ccff;
 
@@ -47,7 +50,6 @@ fieldset {
 
 
 .record {
-	$fontSize: 74px;
 	$transitionDuration: 500ms;
 
 	margin: 10px auto;
@@ -59,12 +61,11 @@ fieldset {
 
 		cursor: default;
 		display: block;
-		font-family: "RadioLand";
-		font-size: $fontSize;
-		letter-spacing: -1px;
+		font: $weightFont;
+		//letter-spacing: -1px;
 		line-height: 1;
-		padding-top: $fontSize / 3;
-		padding-right: $fontSize / 5;
+		//padding-top: $weightFontSize / 3;
+		//padding-right: $weightFontSize / 5;
 	}
 
 	time {
