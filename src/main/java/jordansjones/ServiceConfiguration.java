@@ -2,6 +2,7 @@ package jordansjones;
 
 import com.yammer.dropwizard.client.JerseyClientConfiguration;
 import com.yammer.dropwizard.config.Configuration;
+import jordansjones.config.Pop3UpdateServiceConfig;
 import jordansjones.config.TweetUpdateServiceConfig;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -18,13 +19,22 @@ public class ServiceConfiguration extends Configuration {
 	@Valid
 	@NotNull
 	@JsonProperty
-	private TweetUpdateServiceConfig updateService = new TweetUpdateServiceConfig();
+	private TweetUpdateServiceConfig tweetUpdateService = new TweetUpdateServiceConfig();
+
+	@Valid
+	@NotNull
+	@JsonProperty
+	private Pop3UpdateServiceConfig pop3UpdateService = new Pop3UpdateServiceConfig();
 
 	public JerseyClientConfiguration getHttpClientConfiguration() {
 		return httpClient;
 	}
 
-	public TweetUpdateServiceConfig getUpdateServiceConfiguration() {
-		return updateService;
+	public TweetUpdateServiceConfig getTweetUpdateServiceConfiguration() {
+		return tweetUpdateService;
+	}
+
+	public Pop3UpdateServiceConfig getPop3UpdateServiceConfiguration() {
+		return pop3UpdateService;
 	}
 }

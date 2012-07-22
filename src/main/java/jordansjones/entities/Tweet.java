@@ -1,4 +1,4 @@
-package jordansjones.core;
+package jordansjones.entities;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonSetter;

@@ -6,6 +6,7 @@ import com.google.common.util.concurrent.AbstractScheduledService;
 import com.yammer.dropwizard.client.JerseyClient;
 import com.yammer.dropwizard.logging.Log;
 import jordansjones.config.TweetUpdateServiceConfig;
+import jordansjones.entities.Tweet;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
-public class TweetUpdateService extends AbstractScheduledService {
+public class TweetUpdateService extends AbstractScheduledService implements UpdateService {
 
 	private static final Log logger = Log.forClass(TweetUpdateService.class);
 

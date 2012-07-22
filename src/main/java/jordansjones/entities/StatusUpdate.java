@@ -1,4 +1,4 @@
-package jordansjones.api;
+package jordansjones.entities;
 
 public class StatusUpdate {
 

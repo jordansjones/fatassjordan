@@ -15,10 +15,21 @@
 		}
 	},
 
-	"updateService": {
+	"tweetUpdateService": {
 		"enabled": true,
 		"initialDelay": "1s",
 		"period": "25m",
-		"screenName": "fatassjordan"
+		"screenName": ""
+	},
+
+	"pop3UpdateService": {
+		"enabled": false,
+		"initialDelay": "1s",
+		"period": "25m",
+		"username": "",
+		"password": "",
+		"server": "pop.gmail.com",
+		"port": 995,
+		"useSSL": true
 	}
 }

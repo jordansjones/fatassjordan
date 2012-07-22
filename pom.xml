@@ -12,6 +12,7 @@
 	<properties>
 		<guava.version>12.0</guava.version>
 		<guice.version>3.0</guice.version>
+		<commons-net.version>3.1</commons-net.version>
 		<joda.time.version>2.1</joda.time.version>
 		<dropwizard.version>0.4.0</dropwizard.version>
 		<mockito.version>1.9.0</mockito.version>
@@ -36,6 +37,12 @@
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
 			<version>${guice.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>${commons-net.version}</version>
 		</dependency>
 
 		<dependency>
