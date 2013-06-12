@@ -29,7 +29,7 @@ public class TweetUpdateService extends AbstractScheduledService implements Upda
 		this.config = config;
 		this.httpClient = httpClient;
 		this.eventBus = eventBus;
-		this.endpointUriBuilder = UriBuilder.fromPath("http://api.twitter.com/1/statuses/user_timeline.json")
+		this.endpointUriBuilder = UriBuilder.fromPath("https://api.twitter.com/1.1/statuses/user_timeline.json")
 			.queryParam("screen_name", config.getScreenName())
 			.queryParam("trim_user", true);
 	}
