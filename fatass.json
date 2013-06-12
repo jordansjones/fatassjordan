@@ -19,7 +19,9 @@
 		"enabled": true,
 		"initialDelay": "1s",
 		"period": "25m",
-		"screenName": ""
+		"screenName": "",
+		"consumerKey": "",
+		"consumerSecret": ""
 	},
 
 	"pop3UpdateService": {

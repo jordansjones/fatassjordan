@@ -17,18 +17,15 @@ import jordansjones.resources.TweetsResource;
 
 public class FatassService extends Service<ServiceConfiguration> {
 
-	private static final String ENV_USERNAME = "EMAIL_USER";
-	private static final String ENV_PASSWORD = "EMAIL_PWD";
-	private static final String ENV_SCREENNAME = "TWEET_USER";
-
 	private static final String PortJvmArgName = "dw.http.port";
 	private static final String AdminPortJvmArgName = "dw.http.adminPort";
 	private static final String defaultPort = "8080";
 
 	public static void main(String[] args) throws Exception {
-		String port = System.getenv("PORT");
-		if (Strings.isNullOrEmpty(port))
+		String port = System.getenv(EnvKeys.ENV_PORT);
+		if (Strings.isNullOrEmpty(port)) {
 			port = defaultPort;
+		}
 		System.setProperty(PortJvmArgName, port);
 		System.setProperty(AdminPortJvmArgName, port);
 
@@ -58,11 +55,12 @@ public class FatassService extends Service<ServiceConfiguration> {
 
 	private void initializeConfig(final ServiceConfiguration config) {
 		final Pop3UpdateServiceConfig pop3UpdateServiceConfig = config.getPop3UpdateServiceConfiguration();
-		pop3UpdateServiceConfig.setUsername(System.getenv(ENV_USERNAME));
-		pop3UpdateServiceConfig.setPassword(System.getenv(ENV_PASSWORD));
+		pop3UpdateServiceConfig.setUsername(System.getenv(EnvKeys.ENV_USERNAME));
+		pop3UpdateServiceConfig.setPassword(System.getenv(EnvKeys.ENV_PASSWORD));
 
 		final TweetUpdateServiceConfig tweetUpdateServiceConfig = config.getTweetUpdateServiceConfiguration();
-		tweetUpdateServiceConfig.setScreenName(System.getenv(ENV_SCREENNAME));
-
+		tweetUpdateServiceConfig.setScreenName(System.getenv(EnvKeys.ENV_SCREENNAME));
+		tweetUpdateServiceConfig.setConsumerKey(System.getenv(EnvKeys.ENV_TWITTER_KEY));
+		tweetUpdateServiceConfig.setConsumerSecret(System.getenv(EnvKeys.ENV_TWITTER_SECRET));
 	}
 }

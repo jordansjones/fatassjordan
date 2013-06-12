@@ -13,6 +13,14 @@ public class TweetUpdateServiceConfig extends BaseServiceConfig implements Updat
 	@JsonProperty
 	private String screenName;
 
+	@NotNull
+	@JsonProperty
+	private String consumerKey;
+
+	@NotNull
+	@JsonProperty
+	private String consumerSecret;
+
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -25,4 +33,19 @@ public class TweetUpdateServiceConfig extends BaseServiceConfig implements Updat
 		this.screenName = screenName;
 	}
 
+	public String getConsumerKey() {
+		return consumerKey;
+	}
+
+	public void setConsumerKey(final String consumerKey) {
+		this.consumerKey = consumerKey;
+	}
+
+	public String getConsumerSecret() {
+		return consumerSecret;
+	}
+
+	public void setConsumerSecret(final String consumerSecret) {
+		this.consumerSecret = consumerSecret;
+	}
 }

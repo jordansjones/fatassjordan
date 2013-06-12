@@ -17,6 +17,8 @@ import jordansjones.resources.EntriesResource;
 import jordansjones.resources.IndexResource;
 import jordansjones.resources.TweetsResource;
 
+import java.util.concurrent.ExecutorService;
+
 class GuiceConfig extends AbstractModule {
 
 	public static final TypeLiteral<UpdateServiceManagedObject<TweetUpdateService, TweetUpdateServiceConfig>> TweetManagedTypeLiteral = new TypeLiteral<UpdateServiceManagedObject<TweetUpdateService, TweetUpdateServiceConfig>>() {};
@@ -52,6 +54,7 @@ class GuiceConfig extends AbstractModule {
 		bind(Pop3UpdateService.class).in(Scopes.NO_SCOPE);
 		bind(Pop3ManagedTypeLiteral).in(Scopes.NO_SCOPE);
 
+		bind(ExecutorService.class).toProvider(ExecutorServiceProvider.class).asEagerSingleton();
 		bind(EventBus.class).toProvider(EventBusProvider.class).asEagerSingleton();
 	}
 
